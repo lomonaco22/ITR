@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Asistencia | Instituto Técnico Renault</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="renault-mark" aria-label="Logo geométrico decorativo">
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <path d="M32 3 56 18 32 61 8 18Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M32 14 45 22 32 48 19 22Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="brand">
+        <span>INSTITUTO TÉCNICO</span>
+        <strong>RENAULT</strong>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <nav aria-label="Menú principal">
+        <a class="nav-link active" href="#inicio">
+          <span class="nav-icon">⌂</span><span>Inicio</span>
+        </a>
+        <a class="nav-link" href="#formulario">
+          <span class="nav-icon">▦</span><span>Control de asistencia</span>
+        </a>
+        <a class="nav-link" href="#historial">
+          <span class="nav-icon">▤</span><span>Mis asistencias</span>
+        </a>
+        <a class="nav-link" href="#configuracion">
+          <span class="nav-icon">⚙</span><span>Configuración</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="school-icon">⌂</div>
+        <div>
+          <strong>Sistema escolar</strong>
+          <span>Instituto Técnico Renault</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="inicio">
+      <div class="page-heading">
+        <h1>Control de asistencia</h1>
+        <p>Registrá tu asistencia y consultá tus registros.</p>
+      </div>
+
+      <div class="dashboard">
+        <section class="panel form-panel" id="formulario">
+          <h2>Registrar asistencia</h2>
+          <form id="attendance-form">
+            <div class="form-field">
+              <label for="nombre">Nombre y apellido</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Ingresá tu nombre completo" required>
+            </div>
+
+            <div class="form-field">
+              <label for="curso">Curso</label>
+              <select id="curso" name="curso" required>
+                <option value="">Seleccioná tu curso</option>
+                <option>1° año</option>
+                <option>2° año</option>
+                <option>3° año</option>
+                <option>4° año</option>
+                <option>5° año</option>
+                <option>6° año</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="fecha">Fecha</label>
+              <input id="fecha" name="fecha" type="date" required>
+            </div>
+
+            <button class="primary-button" type="submit">✓ Registrar asistencia</button>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="panel summary-panel" aria-labelledby="summary-title">
+          <h2 id="summary-title">Resumen de asistencias</h2>
+          <div class="summary-card">
+            <div class="summary-row">
+              <span class="status-icon present">✓</span>
+              <span>Presentes</span>
+              <strong id="present-count">18</strong>
+            </div>
+            <div class="summary-row">
+              <span class="status-icon absent">×</span>
+              <span>Ausentes</span>
+              <strong id="absent-count">2</strong>
+            </div>
+            <div class="summary-row">
+              <span class="status-icon justified">▤</span>
+              <span>Justificados</span>
+              <strong id="justified-count">1</strong>
+            </div>
+          </div>
+          <button class="secondary-button" id="history-button" type="button">
+            <span aria-hidden="true">▤</span> Ver el historial completo
+          </button>
+        </section>
+      </div>
+
+      <section class="panel history-panel" id="historial">
+        <div class="history-heading">
+          <div>
+            <h2>Historial de asistencias</h2>
+            <p>Registros realizados desde este navegador.</p>
+          </div>
+          <button id="clear-history" class="text-button" type="button">Borrar historial</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre y apellido</th>
+                <th>Curso</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="history-body">
+              <tr class="empty-row"><td colspan="4">Todavía no hay registros nuevos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sr-only" id="configuracion">
+        <h2>Configuración</h2>
+        <p>Esta sección queda preparada para futuras mejoras.</p>
+      </section>
+
+      <footer>Instituto Técnico Renault · Sistema de Control de Asistencia</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
